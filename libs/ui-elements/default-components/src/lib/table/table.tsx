@@ -104,8 +104,9 @@ const StyledTable = styled(motion.div)<{ isLoading: boolean }>`
     ${({ isLoading }) => !isLoading && `
       border-top: 1px solid #037770;
     `}
-    width: 100%;
+    width: 1100px;
     border-spacing: 10px;
+
     thead {
       tr {
         background: #F3F3F3;
@@ -120,7 +121,7 @@ const StyledTable = styled(motion.div)<{ isLoading: boolean }>`
 
   td {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     ${({ isLoading }) => isLoading && `
       background: black;
       border-radius: 5px;
@@ -214,8 +215,8 @@ export const Table = ({
                     exit: { opacity: 0, maxHeight: 0 },
                     layoutTransition: spring,
                   })}
-                  {...(animate?.tr ? animate.tr() : {})}
                   layout
+                  {...(animate?.tr ? animate.tr() : {})}
                 >
                   {row.cells.map((cell:any) => (
                       <motion.td

@@ -10,7 +10,7 @@ export const ButtonsWrapper = styled('div')`
 
 export const ComponentsWrapper = styled('div')<{ theme?: themeProps }>`
   background-color: ${(props) => props.theme.backgroundColour};
-  width: 1014px;
+  width: 100%;
   height: 100vh;
   font-family: ${(props) => props.theme.defaultFontFamily};
 
@@ -72,8 +72,8 @@ export const GlitchWrapper = styled('div')<{ theme?: themeProps }>`
 `;
 
 export const Title = styled('h1')`
-  font-size: 32px;
-  line-height: 40px;
+  font-size: 32px !important;
+  line-height: 40px !important;
 `;
 
 export const GlitchText = styled('div')`

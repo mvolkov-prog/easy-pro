@@ -113,7 +113,7 @@ const getAnimation = (status: string): any => {
       return {
         table: {
           animate: {
-            x: ['0vw', '20vw', '0vw'],
+            x: ['0vw', '41vw', '0vw'],
           },
           transition: {
             duration: 10,
@@ -126,6 +126,7 @@ const getAnimation = (status: string): any => {
         tr: () => ({
           transition: { ease: 'easeOut', duration: 2 },
           key: Math.random(),
+          layout: false,
         }),
         td: () => ({
           animate: {
