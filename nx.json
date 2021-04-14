@@ -1,0 +1,43 @@
+{
+  "npmScope": "easydev-pro",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "app-basis": {
+      "tags": []
+    },
+    "app-basis-e2e": {
+      "tags": [],
+      "implicitDependencies": ["app-basis"]
+    },
+    "ui-elements-default-components": {
+      "tags": []
+    },
+    "ui-elements-theme": {
+      "tags": []
+    },
+    "ui-elements-styles": {
+      "tags": []
+    }
+  }
+}

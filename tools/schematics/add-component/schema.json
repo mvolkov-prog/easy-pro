@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "add-component",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Library name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "libType": {
+      "type": "string",
+      "description": "Choose the library type",
+      "x-prompt": {
+        "message": "In which type of library your component should be?",
+        "type": "list",
+        "items": [
+          {
+            "value": "ui-elements",
+            "label": "UI"
+          }
+        ]
+      }
+    },
+    "lib": {
+      "type": "string",
+      "description": "Choose the library",
+      "x-prompt": {
+        "message": "In which library would you like to generate this component?",
+        "type": "list",
+        "items": [
+          {
+            "value": "default-components",
+            "label": "Default components"
+          },
+          {
+            "value": "styles",
+            "label": "Styles"
+          },
+          {
+            "value": "theme",
+            "label": "Theme"
+          }
+        ]
+      }
+    }
+  },
+  "required": ["name"]
+}

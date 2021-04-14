@@ -1,0 +1,66 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "ignorePatterns": ["**/*"],
+  "plugins": ["@typescript-eslint", "@nrwl/nx"],
+  "extends": [
+    // Order matters!!!
+    "airbnb",
+    // The set of rules which are recommended for all projects by the ESLint Team
+    "eslint:recommended",
+    // Disable rules which are already handled by TypeScript
+    "plugin:@typescript-eslint/eslint-recommended",
+    // Apply TypeScript-specific rules
+    "plugin:@typescript-eslint/recommended",
+    // Disable prettier conflicting rules from react
+    "prettier/react",
+    // Disable prettier conflicting rules from @typescript-eslint
+    "prettier/@typescript-eslint",
+    // React hooks linting
+    "plugin:react-hooks/recommended"
+  ],
+  "rules": {
+    "react/jsx-props-no-spreading": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "import/prefer-default-export": "off",
+    "react/jsx-filename-extension": [0],
+    "import/extensions": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-parameter-properties": "off",
+    "@nrwl/nx/enforce-module-boundaries": [
+      "error",
+      {
+        "enforceBuildableLibDependency": true,
+        "allow": [],
+        "depConstraints": [
+          { "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {},
+      "node": {
+        "extensions": [".js", ".ts"],
+        "paths": ["node_modules/", "node_modules/@types"] // eslint-import-resolver-typescript
+      }
+    }
+  },
+  "overrides": [
+    {
+      "files": ["*.tsx"],
+      "rules": {}
+    }
+  ]
+}

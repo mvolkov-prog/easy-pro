@@ -1,0 +1,189 @@
+{
+  "version": 1,
+  "projects": {
+    "app-basis": {
+      "root": "apps/app-basis",
+      "sourceRoot": "apps/app-basis/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/app-basis",
+            "index": "apps/app-basis/src/index.html",
+            "main": "apps/app-basis/src/main.tsx",
+            "polyfills": "apps/app-basis/src/polyfills.ts",
+            "tsConfig": "apps/app-basis/tsconfig.app.json",
+            "assets": [
+              "apps/app-basis/src/favicon.ico",
+              "apps/app-basis/src/assets"
+            ],
+            "styles": [],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/app-basis/src/environments/environment.ts",
+                  "with": "apps/app-basis/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "app-basis:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "app-basis:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/app-basis/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/app-basis/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "app-basis-e2e": {
+      "root": "apps/app-basis-e2e",
+      "sourceRoot": "apps/app-basis-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/app-basis-e2e/cypress.json",
+            "tsConfig": "apps/app-basis-e2e/tsconfig.e2e.json",
+            "devServerTarget": "app-basis:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "app-basis:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/app-basis-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "ui-elements-default-components": {
+      "root": "libs/ui-elements/default-components",
+      "sourceRoot": "libs/ui-elements/default-components/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui-elements/default-components/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-elements/default-components/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui-elements-theme": {
+      "root": "libs/ui-elements/theme",
+      "sourceRoot": "libs/ui-elements/theme/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui-elements/theme/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-elements/theme/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui-elements-styles": {
+      "root": "libs/ui-elements/styles",
+      "sourceRoot": "libs/ui-elements/styles/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui-elements/styles/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-elements/styles/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "schematics": {
+    "@nrwl/react": {
+      "application": {
+        "style": "@emotion/styled",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "@emotion/styled"
+      },
+      "library": {
+        "style": "@emotion/styled",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "app-basis"
+}

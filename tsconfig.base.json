@@ -1,0 +1,31 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "strict": true,
+    "jsx": "react",
+    "esModuleInterop": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@easydev-pro/ui-elements/default-components": [
+        "libs/ui-elements/default-components/src/index.ts"
+      ],
+      "@easydev-pro/ui-elements/theme": ["libs/ui-elements/theme/src/index.ts"],
+      "@easydev-pro/ui-elements/styles": [
+        "libs/ui-elements/styles/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
